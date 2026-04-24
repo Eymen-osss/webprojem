@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaynak Bilgi - Strateji</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-category="strateji">
+    <header>
+      <div class="kutu ustcubuk">
+        <div class="ustcubuk-sol">
+          <a class="logo" href="index.html"><span class="logo-ikon"></span><span>Kaynak Bilgi</span></a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="din.html">Din</a></li>
+              <li><a href="bilim.html">Bilim</a></li>
+              <li><a href="siyaset.html">Siyaset</a></li>
+              <li><a href="ekonomi.html">Ekonomi</a></li>
+              <li><a href="tarih.html">Tarih</a></li>
+              <li><a href="strateji.html" class="active">Strateji</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="arama-sepet">
+          <input id="aramaGirdisi" type="text" placeholder="Kitap ara..." />
+          <a class="dugme" href="cart.html">Sepet (<span data-cart-count>0</span>)</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="kutu">
+      <div id="kategoriBilgi">
+        <h1 id="kategoriBaslik"></h1>
+        <p id="kategoriAciklama" class="soluk"></p>
+      </div>
+      <div id="kategoriKitaplar">
+        <div id="kategoriKafesi" class="kitap-kafesi" style="margin-top:16px;"></div>
+      </div>
+      <div id="aramaSonuclari" class="sonuclar"></div>
+    </div>
+
+    <footer>
+      <div class="kutu altbilgi-kafesi">
+        <div>
+          <h3>Iletisim</h3>
+          <p>Mail: iletisim@kaynakbilgi.com</p>
+          <p>Telefon: 0 (555) 321 45 67</p>
+        </div>
+        <div>
+          <h3>Sosyal Medya</h3>
+          <div class="socials">
+            <a href="#" class="social-link" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" /></a>
+            <a href="#" class="social-link" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" /></a>
+            <a href="#" class="social-link" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" /></a>
+            <a href="#" class="social-link" aria-label="X"><img src="https://cdn.simpleicons.org/x/ffffff" alt="X" /></a>
+          </div>
+        </div>
+        <div>
+          <h3>Hakkimizda</h3>
+          <p>Arastirmayi kisaltan, bilgiye ulasimi hizlandiran ve hakiki bir kitap sitesi deneyimi sunmayi amaclayan bir proje olarak tasarlandi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="veri.js"></script>
+    <script src="uygulama.js"></script>
+    <script src="kategori.js"></script>
+  </body>
+</html>

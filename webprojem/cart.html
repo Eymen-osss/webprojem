@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaynak Bilgi - Sepet</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="kutu ustcubuk">
+        <div class="ustcubuk-sol">
+          <a class="logo" href="index.html"><span class="logo-ikon"></span><span>Kaynak Bilgi</span></a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="cart.html" class="active">Sepet</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="kutu">
+      <div class="panel" style="margin-top: 20px;">
+        <h1>Sepetim</h1>
+        <div id="sepetUrunleri"></div>
+      </div>
+
+      <div class="panel" style="margin-top: 16px;">
+        <h2>Teslimat Bilgileri</h2>
+        <form id="musteriFormu">
+          <div class="form-grup"><input id="tamIsim" type="text" placeholder="Isim Soyisim" required /></div>
+          <div class="form-grup"><textarea id="adres" rows="3" placeholder="Adres Bilgisi" required></textarea></div>
+          <div class="form-grup"><input id="telefon" type="tel" placeholder="(5__)_______" required /></div>
+          <p>Toplam: <strong id="toplamFiyat">0 TL</strong></p>
+          <button class="dugme" type="submit">Odemeye Gec</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="odemeModal" class="modal-kapsayici">
+      <div class="modal-kart">
+        <div class="modal-baslik">
+          <h3>Kart Bilgileri</h3>
+          <button id="kapatModal" class="simge-dugme" type="button">x</button>
+        </div>
+        <form id="odemeFormu">
+          <div class="form-grup"><input id="kartSahibi" type="text" placeholder="Kart Sahibi Adi" required /></div>
+          <div class="form-grup kart-numarasi-grubu">
+            <input id="kartNum1" type="text" inputmode="numeric" maxlength="4" placeholder="0000" required />
+            <input id="kartNum2" type="text" inputmode="numeric" maxlength="4" placeholder="0000" required />
+            <input id="kartNum3" type="text" inputmode="numeric" maxlength="4" placeholder="0000" required />
+            <input id="kartNum4" type="text" inputmode="numeric" maxlength="4" placeholder="0000" required />
+          </div>
+          <div class="form-grup"><input id="kartSonKullanma" type="text" maxlength="5" placeholder="AA/YY" required /></div>
+          <div class="form-grup"><input id="kartCvv" type="password" maxlength="3" placeholder="CVV" required /></div>
+          <button class="dugme" type="submit">Satin Al</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="kutu altbilgi-kafesi">
+        <div>
+          <h3>Iletisim</h3>
+          <p>Mail: iletisim@kaynakbilgi.com</p>
+          <p>Telefon: 0 (555) 321 45 67</p>
+        </div>
+        <div>
+          <h3>Sosyal Medya</h3>
+          <div class="sosyal-ag">
+            <a href="#" class="sosyal-baglanti" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" /></a>
+            <a href="#" class="sosyal-baglanti" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" /></a>
+            <a href="#" class="sosyal-baglanti" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" /></a>
+            <a href="#" class="sosyal-baglanti" aria-label="X"><img src="https://cdn.simpleicons.org/x/ffffff" alt="X" /></a>
+          </div>
+        </div>
+        <div>
+          <h3>Hakkimizda</h3>
+          <p>Arastirmayi kisaltan, bilgiye ulasimi hizlandiran ve hakiki bir kitap sitesi deneyimi sunmayi amaclayan bir proje olarak tasarlandi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="veri.js"></script>
+    <script src="uygulama.js"></script>
+    <script src="sepet.js"></script>
+  </body>
+</html>

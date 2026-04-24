@@ -1,0 +1,251 @@
+<!doctype html>
+
+<html lang="tr">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kaynak Bilgi - Kitap E-Ticaret</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+
+  <body>
+
+    <header>
+
+      <div class="kutu ustcubuk">
+
+        <div class="ustcubuk-sol">
+
+          <a class="logo" href="index.html">
+
+            <span class="logo-ikon"></span>
+
+            <span>Kaynak Bilgi</span>
+
+          </a>
+
+          <nav>
+
+            <ul>
+
+              <li><a class="active" href="index.html">Ana Sayfa</a></li>
+
+              <li><a href="din.html">Din</a></li>
+
+              <li><a href="bilim.html">Bilim</a></li>
+
+              <li><a href="siyaset.html">Siyaset</a></li>
+
+              <li><a href="ekonomi.html">Ekonomi</a></li>
+
+              <li><a href="tarih.html">Tarih</a></li>
+
+              <li><a href="strateji.html">Strateji</a></li>
+
+            </ul>
+
+          </nav>
+
+        </div>
+
+        <div class="arama-sepet">
+
+          <input id="aramaGirdisi" type="text" placeholder="Kitap ara..." />
+
+          <a class="dugme" href="cart.html">Sepet (<span data-cart-count>0</span>)</a>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+
+    <main class="kutu">
+
+      <section class="kahraman">
+
+        <img src="images/kahraman.jpg" alt="Kutuphane" />
+
+        <div class="kahraman-ust">
+
+          <h1>Arastirmaya Acilan Bilgi Kutuphanesi</h1>
+
+        </div>
+
+      </section>
+
+
+
+      <section id="cokSatanlarBolumu">
+
+        <h2 class="bolum-baslik">Cok Satanlar</h2>
+
+        <div id="cokSatanlarKafesi" class="kitaplar-kafes"></div>
+
+      </section>
+
+
+
+      <section id="yeniKitaplarBolumu" class="gizli">
+
+        <h2 class="bolum-baslik">Yeni eklenenler</h2>
+
+        <div id="yeniKitaplarKafesi" class="kitaplar-kafes"></div>
+
+      </section>
+
+
+
+      <section id="aramaSonuclari" class="results"></section>
+
+
+
+      <section class="kitap-tanitim">
+
+        <img src="https://m.media-amazon.com/images/I/61KU+P-nVQL._AC_UF894,1000_QL80_.jpg" alt="Savas Sanati" />
+
+        <div>
+
+          <h2>Kitap Tanitimi: Savas Sanati</h2>
+
+          <p class="soluk">
+
+            Sun Tzu'nun klasik eseri, yalnizca askeri strateji degil; liderlik, planlama ve zorluk
+
+            karsisinda sogukkanli kalma becerileri icin de guclu bir rehberdir. Is dunyasi ve gunluk
+
+            hayatta stratejik dusunmek isteyenler icin vazgecilmez bir kaynak.
+
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+    <footer>
+
+      <div class="kutu altbilgi-kafes">
+
+        <div>
+
+          <h3>Iletisim</h3>
+
+          <p>Mail: iletisim@kaynakbilgi.com</p>
+
+          <p>Telefon: 0 (555) 321 45 67</p>
+
+        </div>
+
+        <div>
+
+          <h3>Sosyal Medya</h3>
+
+          <div class="sosyal-ag">
+
+            <a href="#" class="sosyal-baglanti" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" /></a>
+
+            <a href="#" class="sosyal-baglanti" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" /></a>
+
+            <a href="#" class="sosyal-baglanti" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" /></a>
+
+            <a href="#" class="sosyal-baglanti" aria-label="X"><img src="https://cdn.simpleicons.org/x/ffffff" alt="X" /></a>
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <h3>Hakkimizda</h3>
+
+          <p>
+
+            Arastirmayi kisaltan, bilgiye ulasimi hizlandiran ve hakiki bir kitap sitesi deneyimi
+
+            sunmayi amaclayan bir proje olarak tasarlandi.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+
+
+    <script src="veri.js"></script>
+
+    <script src="uygulama.js"></script>
+
+    <script>
+
+      katalogBaslat().then(() => {
+
+        const bestSellers = [
+
+          ...KİTAP_VERİSİ["din"].slice(0, 2),
+
+          ...KİTAP_VERİSİ["bilim"].slice(0, 2),
+
+          ...KİTAP_VERİSİ["siyaset"].slice(0, 2),
+
+          ...KİTAP_VERİSİ["ekonomi"].slice(0, 2),
+
+          ...KİTAP_VERİSİ["tarih"].slice(0, 1),
+
+          ...KİTAP_VERİSİ["strateji"].slice(0, 1)
+
+        ];
+
+        kitaplariRendirle("cokSatanlarKafesi", bestSellers);
+
+
+
+        function syncCustomBooksSection() {
+
+          const section = document.getElementById("yeniKitaplarBolumu");
+
+          const custom = ozelEklenenKitaplariAl();
+
+          if (!custom.length) {
+
+            section.classList.add("gizli");
+
+            document.getElementById("yeniKitaplarKafesi").innerHTML = "";
+
+            return;
+
+          }
+
+          section.classList.remove("gizli");
+
+          kitaplariRendirle("yeniKitaplarKafesi", custom);
+
+        }
+
+
+
+        syncCustomBooksSection();
+
+        aramaKurulus("aramaGirdisi", "aramaSonuclari", ["#cokSatanlarBolumu", "#yeniKitaplarBolumu", ".kitap-tanitim"], syncCustomBooksSection);
+
+      });
+
+    </script>
+
+  </body>
+
+</html>

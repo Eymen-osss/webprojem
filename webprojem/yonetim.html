@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin - Kaynak Bilgi</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container topbar">
+        <div class="topbar-left">
+          <a class="logo" href="index.html">
+            <span class="logo-icon"></span>
+            <span>Kaynak Bilgi</span>
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Ana Sayfaya Dön</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="admin-panel">
+        <div id="girisBolumu">
+          <h2>Giriş</h2>
+          <p class="muted">Kullanıcı adı <strong>admin</strong>, şifre <strong>1234</strong>.</p>
+          <form id="loginForm" class="admin-form">
+            <div class="form-group">
+              <input id="loginUsername" type="text" placeholder="Kullanıcı Adı" required />
+            </div>
+            <div class="form-group">
+              <input id="loginPassword" type="password" placeholder="Şifre" required />
+            </div>
+            <button class="btn" type="submit">Giriş</button>
+          </form>
+          <p id="loginMessage" class="admin-message" aria-live="polite"></p>
+        </div>
+
+        <div id="yonetimBolumu" class="gizli">
+          <div class="admin-header">
+            <h2>Ürün Yönetimi</h2>
+            <button id="logoutBtn" class="btn" type="button">Çıkış Yap</button>
+          </div>
+
+          <form id="productForm" class="admin-form">
+          <div class="form-group">
+            <select id="productCategory" required>
+              <option value="">Kategori Seçin</option>
+              <option value="din">Din</option>
+              <option value="bilim">Bilim</option>
+              <option value="siyaset">Siyaset</option>
+              <option value="ekonomi">Ekonomi</option>
+              <option value="tarih">Tarih</option>
+              <option value="strateji">Strateji</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input id="productTitle" type="text" placeholder="Kitap Adı" required />
+          </div>
+          <div class="form-group">
+            <input id="productAuthor" type="text" placeholder="Yazarı" required />
+          </div>
+          <div class="form-group">
+            <input id="productPrice" type="number" min="1" placeholder="Fiyat" required />
+          </div>
+          <div class="form-group">
+            <p id="imageHelpText" class="muted" style="margin-bottom:8px;font-size:0.88rem;">
+              Yeni ürün için zorunlu. Düzenlerken boş bırakırsanız mevcut resim kalır.
+            </p>
+            <input id="productImageFile" type="file" accept="image/*" />
+            <img id="imagePreview" class="admin-image-preview hidden" alt="Önizleme" />
+          </div>
+          <div class="form-group">
+            <textarea id="productDescription" rows="3" placeholder="Ürün Açıklaması" required></textarea>
+          </div>
+          <div id="dinSubcategoryContainer" class="form-group hidden">
+            <select id="productDinSubcategory">
+              <option value="">Seçiniz</option>
+              <option value="fikih">Fikih</option>
+              <option value="akaid">Akaid</option>
+              <option value="kelam">Kelam</option>
+              <option value="tasavvuf">Tasavvuf</option>
+              <option value="cevaplar">Cevaplar</option>
+            </select>
+          </div>
+          <div class="admin-form-actions">
+            <button class="btn" type="submit" id="productSubmitBtn">Ürün Ekle</button>
+            <button class="btn secondary hidden" type="button" id="editCancelBtn">Düzenlemeyi İptal Et</button>
+          </div>
+          <p id="productFormMessage" class="admin-message" aria-live="polite"></p>
+          </form>
+
+          <h3 class="section-title">Mevcut Ürünler</h3>
+          <div id="productList" class="admin-products"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>İletişim</h3>
+          <p>Mail: iletisim@kaynakbilgi.com</p>
+          <p>Telefon: 0 (555) 321 45 67</p>
+        </div>
+        <div>
+          <h3>Sosyal Medya</h3>
+          <div class="socials">
+            <a href="#" class="social-link" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" /></a>
+            <a href="#" class="social-link" aria-label="TikTok"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" /></a>
+            <a href="#" class="social-link" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" /></a>
+            <a href="#" class="social-link" aria-label="X"><img src="https://cdn.simpleicons.org/x/ffffff" alt="X" /></a>
+          </div>
+        </div>
+        <div>
+          <h3>Hakkımızda</h3>
+          <p>
+            Araştırmayı kısaltan, bilgiye ulaşımı hızlandıran ve hakiki bir kitap sitesi deneyimi
+            sunmayı amaçlayan bir proje olarak tasarlandı.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="veri.js"></script>
+    <script src="yonetim.js"></script>
+  </body>
+</html>
